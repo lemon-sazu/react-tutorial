@@ -4,9 +4,9 @@ import { planets } from './Planets'
 function App() {
   return (
     <div>
-      {planets.map((planet, key)=>{
-        return planet.isGasPlanet? <PlanetCart key={key} name={planet.name} /> :''
-      })}
+      {planets.map((planet, key)=> planet.isGasPlanet? <PlanetCart key={key} name={planet.name} /> :''
+      // {return planet.isGasPlanet? <PlanetCart key={key} name={planet.name} /> :''} 
+        )}
     </div>
   );
 }
