@@ -1,22 +1,27 @@
+import { useState } from 'react';
 import './App.css';
-import { planets } from './Planets'
 
 function App() {
+  const [count, setCount] = useState(0);
+  const countIncrese = () => {
+    setCount(count+1);
+  }
+  const countDecrese = () => {
+    setCount(count-1)
+  }
+  const countSetZero = () => {
+    setCount(0);
+  }
   return (
-    <div>
-      {planets.map((planet, key)=> planet.isGasPlanet? <PlanetCart key={key} name={planet.name} /> :''
-      // {return planet.isGasPlanet? <PlanetCart key={key} name={planet.name} /> :''} 
-        )}
-    </div>
+    <div style={{ textAlign: "center" }}>
+      <h2>{count}</h2>
+      <div>
+        <button onClick={countIncrese}>Increase</button>
+        <button onClick={countDecrese}>Decrease</button>
+        <button onClick={countSetZero}>Set To Zero</button>
+      </div>
+    </div >
   );
-}
-
-const PlanetCart = (prop) => {
-  return (
-    <div>
-      <h2>{prop.name}</h2>
-    </div>
-  )
 }
 
 export default App;
