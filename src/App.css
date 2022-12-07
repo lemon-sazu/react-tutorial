@@ -65,3 +65,17 @@
   color: white;
   border-radius: 6px;
 }
+
+.content_area {
+  background-color: black;
+  width: 350px;
+  margin: 0 auto;
+  color: white;
+  margin-top: 50px;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.content_area h2{
+  margin-bottom: 20px;
+}
