@@ -1,38 +1,34 @@
-import { useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import './App.css';
-import Axios from 'axios'
+import { Page404 } from './pages/404';
+import { Contact } from './pages/Contact';
+import { Home } from './pages/Home';
+import { Profile } from './pages/Profile';
+
+export const AppContext = createContext();
+
 function App() {
-
-  const [name, setName] = useState('');
-  const [predict, setPredict] = useState();
-  const handleChange = (event) => {
-    setName(event.target.value)
-  }
-
-  // useEffect(() => {
-  //   getPredict();
-  // }, [])
-
-  const getPredict = () => {
-    Axios.get(`https://api.agify.io/?name=${name}`).then((res) => {
-      setPredict(res.data);
-      console.log(predict);
-    })
-  }
-
+  const [name, setName] = useState('Sazu');
   return (
     <div>
-      <div className='add_area'>
-        <div className="add_area-inputs">
-          <input type="text" onChange={handleChange} className='task_input' placeholder='Your Name' />
-          <button onClick={getPredict} className="addtask_btn">Submit</button>
-        </div>
-      </div>
-      <div className="content_area">
-        <h2>Age Predictor</h2>
-        <p><b>Name: </b> {predict?.name} </p>
-        <p><b>Age: </b> {predict?.age} </p>
-      </div>
+      <AppContext.Provider value={{ name, setName }}>
+        <BrowserRouter>
+          <div className="app">
+            <div>
+              <Link to='/'>Home</Link>
+              <Link to='/profile'>Profile</Link>
+              <Link to='/contact'>Contact</Link>
+            </div>
+          </div>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='*' element={<Page404 />} />
+          </Routes>
+        </BrowserRouter>
+      </AppContext.Provider>
     </div >
   );
 }

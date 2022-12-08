@@ -3,6 +3,9 @@
   padding: 0;
 }
 
+.app{
+  text-align: center;
+}
 .add_area {
   height: 25vh;
   background-color: aquamarine;
