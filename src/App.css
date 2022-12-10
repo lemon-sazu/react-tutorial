@@ -3,9 +3,10 @@
   padding: 0;
 }
 
-.app{
+.app {
   text-align: center;
 }
+
 .add_area {
   height: 25vh;
   background-color: aquamarine;
@@ -79,6 +80,27 @@
   padding-top: 25px;
   padding-bottom: 25px;
 }
-.content_area h2{
+
+.content_area h2 {
   margin-bottom: 20px;
+}
+
+.form input {
+  width: 200px;
+  font-size: 16px;
+  padding: 5px 10px;
+ margin-top: 10px;
+}
+
+.form button {
+  width: 220px;
+  font-size: 16px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  background-color: gainsboro;
+  margin-top: 15px;
+}
+.form span{
+  color: red;
 }
